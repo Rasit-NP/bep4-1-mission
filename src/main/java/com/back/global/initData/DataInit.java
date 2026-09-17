@@ -4,6 +4,7 @@ import com.back.boundedContext.member.domain.Member;
 import com.back.boundedContext.post.domain.Post;
 import com.back.boundedContext.member.app.MemberFacade;
 import com.back.boundedContext.post.app.PostFacade;
+import com.back.global.rsData.RsData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -57,12 +58,18 @@ public class DataInit {
         Member user2Member = memberFacade.findByUsername("user2").get();
         Member user3Member = memberFacade.findByUsername("user3").get();
 
-        Post post1 = postFacade.write(user1Member, "제목1", "내용1").getData();
-        Post post2 = postFacade.write(user1Member, "제목2", "내용2").getData();
-        Post post3 = postFacade.write(user1Member, "제목3", "내용3").getData();
-        Post post4 = postFacade.write(user2Member, "제목4", "내용4").getData();
-        Post post5 = postFacade.write(user2Member, "제목5", "내용5").getData();
-        Post post6 = postFacade.write(user3Member, "제목6", "내용6").getData();
+        RsData<Post> postRsData1 = postFacade.write(user1Member, "제목1", "내용1");
+        log.debug(postRsData1.getMsg());
+        RsData<Post> postRsData2 = postFacade.write(user1Member, "제목2", "내용2");
+        log.debug(postRsData2.getMsg());
+        RsData<Post> postRsData3 = postFacade.write(user1Member, "제목3", "내용3");
+        log.debug(postRsData3.getMsg());
+        RsData<Post> postRsData4 = postFacade.write(user2Member, "제목4", "내용4");
+        log.debug(postRsData4.getMsg());
+        RsData<Post> postRsData5 = postFacade.write(user2Member, "제목5", "내용5");
+        log.debug(postRsData5.getMsg());
+        RsData<Post> postRsData6 = postFacade.write(user3Member, "제목6", "내용6");
+        log.debug(postRsData6.getMsg());
     }
 
     @Transactional
