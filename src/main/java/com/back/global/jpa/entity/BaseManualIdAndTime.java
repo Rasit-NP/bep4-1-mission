@@ -1,0 +1,31 @@
+package com.back.global.jpa.entity;
+
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalTime;
+
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor
+@Getter
+public class BaseManualIdAndTime {
+    @Id
+    private int id;
+
+    @CreatedDate
+    private LocalTime createDate;
+
+    @LastModifiedDate
+    private LocalTime modifyDate;
+
+    public BaseManualIdAndTime(int id){
+        this.id = id;
+    }
+}
