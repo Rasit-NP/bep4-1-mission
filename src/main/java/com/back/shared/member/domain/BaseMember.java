@@ -1,5 +1,6 @@
 package com.back.shared.member.domain;
 
+import com.back.global.global.GlobalConfig;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AccessLevel;
@@ -20,9 +21,14 @@ public class BaseMember {
     private String nickname;
     private int activityScore;
 
-    public BaseMember(String username, String password, String nickname){
+    public BaseMember(String username, String password, String nickname, int activityScore){
         this.username = username;
         this.password = password;
         this.nickname = nickname;
+        this.activityScore = activityScore;
+    }
+
+    protected void publishEvent(Object event){
+        GlobalConfig.getEventPublisher().publish(event);
     }
 }
