@@ -1,9 +1,9 @@
 package com.back.shared.member.domain;
 
 import com.back.global.global.GlobalConfig;
+import com.back.global.jpa.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @Setter(value = PROTECTED)
 @NoArgsConstructor
-public class BaseMember {
+public abstract class BaseMember extends BaseEntity {
     @Column(unique = true)
     private String username;
     private String password;

@@ -9,21 +9,22 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @Getter
-public class BaseManualIdAndTime {
+public class BaseManualIdAndTime extends BaseEntity {
     @Id
     private int id;
 
     @CreatedDate
-    private LocalTime createDate;
+    private LocalDateTime createDate;
 
     @LastModifiedDate
-    private LocalTime modifyDate;
+    private LocalDateTime modifyDate;
 
     public BaseManualIdAndTime(int id){
         this.id = id;
