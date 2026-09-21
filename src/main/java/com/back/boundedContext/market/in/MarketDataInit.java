@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
+import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @Slf4j
@@ -33,5 +34,12 @@ public class MarketDataInit {
         return args -> {
             self.makeBaseProducts();
         };
+    }
+
+    @Transactional
+    public void makeBaseProducts(){
+        postApiClient
+                .getItems()
+                .forEach(post -> System.out.println("post.getId() : " + post.getId()));
     }
 }
