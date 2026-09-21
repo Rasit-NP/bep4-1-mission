@@ -1,6 +1,7 @@
 package com.back.boundedContext.cash.in;
 
 import com.back.boundedContext.cash.app.CashFacade;
+import com.back.boundedContext.cash.app.CashSyncMemberUseCase;
 import com.back.boundedContext.cash.domain.CashMember;
 import com.back.shared.member.event.MemberJoinedEvent;
 import com.back.shared.member.event.MemberModifiedEvent;
@@ -16,6 +17,7 @@ import static org.springframework.transaction.event.TransactionPhase.AFTER_COMMI
 @RequiredArgsConstructor
 public class CashEventListener {
     private final CashFacade cashFacade;
+    private final CashSyncMemberUseCase cashSyncMemberUseCase;
 
     @TransactionalEventListener(phase = AFTER_COMMIT)
     @Transactional(propagation = REQUIRES_NEW)

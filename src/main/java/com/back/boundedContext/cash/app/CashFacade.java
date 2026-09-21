@@ -2,8 +2,6 @@ package com.back.boundedContext.cash.app;
 
 import com.back.boundedContext.cash.domain.CashMember;
 import com.back.boundedContext.cash.domain.Wallet;
-import com.back.boundedContext.cash.out.CashMemberRepository;
-import com.back.boundedContext.cash.out.WalletRepository;
 import com.back.shared.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +16,11 @@ public class CashFacade {
     private final CashCreateWalletUseCase cashCreateWalletUseCase;
     private final CashSupport cashSupport;
     private final CashSyncMemberUseCase cashSyncMemberUseCase;
+
+    @Transactional
+    public CashMember syncMember(MemberDto member){
+        return cashSyncMemberUseCase.syncMember(member);
+    }
 
     @Transactional
     public Wallet createWallet(CashMember holder){
