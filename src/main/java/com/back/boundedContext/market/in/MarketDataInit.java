@@ -41,6 +41,7 @@ public class MarketDataInit {
             self.makeBaseProducts();
             self.makeBaseCartItems();
             self.makeBaseOrders();
+            self.makeBasePaidOrders();
         };
     }
 
