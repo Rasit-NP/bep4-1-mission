@@ -30,6 +30,8 @@ public class CashSyncMemberUseCase {
                 member.getActivityScore()
         );
 
+        cashMemberRepository.save(_member);
+
         if (isNew){
             eventPublisher.publish(
                 new CashMemberCreatedEvent(
