@@ -29,6 +29,8 @@ public class MarketSyncMemberUseCase {
                 member.getActivityScore()
         );
 
+        marketMemberRepository.save(marketMember);
+
         if (isNew){
             eventPublisher.publish(
                     new MarketMemberCreatedEvent(
