@@ -34,7 +34,7 @@ public class MarketSyncMemberUseCase {
         if (isNew){
             eventPublisher.publish(
                     new MarketMemberCreatedEvent(
-                            new MarketMemberDto(marketMember)
+                            marketMember.toDto()
                     )
             );
         }
