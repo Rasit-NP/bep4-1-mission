@@ -5,7 +5,7 @@ import com.back.boundedContext.market.domain.Order;
 import com.back.global.exception.DomainException;
 import com.back.global.rsData.RsData;
 import com.back.shared.cash.out.CashApiClient;
-import com.back.shared.out.TossPaymentsService;
+import com.back.shared.market.out.TossPaymentsService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
