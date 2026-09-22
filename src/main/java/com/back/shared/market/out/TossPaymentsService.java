@@ -1,4 +1,4 @@
-package com.back.shared.out;
+package com.back.shared.market.out;
 
 import com.back.global.exception.DomainException;
 import org.springframework.beans.factory.annotation.Value;
