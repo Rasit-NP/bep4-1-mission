@@ -31,4 +31,8 @@ public abstract class BaseMember extends BaseEntity {
     protected void publishEvent(Object event){
         GlobalConfig.getEventPublisher().publish(event);
     }
+
+    public boolean isSystem() {
+        return "system".equals(username);
+    }
 }
